@@ -69,7 +69,7 @@ Where available commands are:
   * upgrade [update all or specific package(s)]
   * whatprovides [regex search for package(s) that contains file(s)]
 
-Available packages are listed in the [packages directory](https://github.com/skycocker/chromebrew/tree/master/packages).
+Available packages are listed in the [packages directory](https://github.com/jam7/chromebrew/tree/master/packages).
 
 Chromebrew will wipe its `BREW_DIR` (`/usr/local/tmp/crew` by default) after installation unless you pass `-k` or `--keep` when running `crew install`.
 
@@ -79,5 +79,8 @@ License
 -------
 
 Copyright 2013-2017 Michal Siwek and [all the awesome contributors](https://github.com/skycocker/chromebrew/graphs/contributors).
+Copyright 2016-2017 Kazushi (Jam) Marukawa, ARM related stuff and local modifications.
 
 This project including all of its source files is released under the terms of [GNU General Public License (version 3 or later)](http://www.gnu.org/licenses/gpl.txt).
+
+Thanks Davy for [putting pre-compiled gcc for ARM](http://davy.nyacom.net/cros-arm-dev.html).  It was the beginning of chromebrew for ARM.
