@@ -13,6 +13,14 @@ Supported Systems
 | armv7l | Yes |
 | aarch64 | Yes |
 
+Here, I'm releasing personally modified chromebrew.  Modifications are listed at
+[below](#modifications). If you are looking for the original chromebrew, please
+refer [the original site](https://github.com/skycocker/chromebrew/).
+
+Basically, I want to merge all modifications here to the original one.
+So, this chromebrew often rebase to the original one to make merging
+easier.
+
 Overview
 --------
 
@@ -74,6 +82,18 @@ Available packages are listed in the [packages directory](https://github.com/jam
 Chromebrew will wipe its `BREW_DIR` (`/usr/local/tmp/crew` by default) after installation unless you pass `-k` or `--keep` when running `crew install`.
 
     crew install --keep <package1> [<package2> ...]
+
+Modifications
+-------------
+
+Chromebrew at this repository is modified from its original, https://github.com/skycocker/chromebrew.
+I'll merge these modifications to the original, but it's time consuming.
+
+What modifications are:
+
+  * Refactoring crew
+    * Change to clean working directory before source extraction
+    * Add binstall (build and install)
 
 License
 -------
