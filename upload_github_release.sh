@@ -34,5 +34,6 @@ esac
 
 for file in "$@"; do
   name=$(basename $file)
+  github-release deletef -u "$owner" -r "$repo" -t "$tag" -n "$name"
   github-release upload -u "$owner" -r "$repo" -t "$tag" -n "$name" -f "$file"
 done
