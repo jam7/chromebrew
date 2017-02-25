@@ -8,19 +8,29 @@ class Nethack4 < Package
   source_url 'http://nethack4.org/media/releases/nethack4-4.3-beta2.tar.gz'
   source_sha256 'b143a86b5e1baf55c663ae09c2663b169d265e95ac43154982296a1887d05f15'
 
-  depends_on 'buildessential'
+  depends_on 'buildessential' => :build
   depends_on 'ncurses'
-  depends_on 'bison'
-  depends_on 'flex'
-  depends_on 'perl'
+  depends_on 'bison' => :build
+  depends_on 'flex' => :build
+  depends_on 'perl' => :build
+  depends_on 'zlibpkg' => :build
 
   def self.build
     target="build"
     system "mkdir -p " + target
     Dir.chdir target  do
-      #build with rpath pointing at /usr/local
+      # Force to set codeset to UTF-8 since gcc supports it
+      # LANG environment variable doesn't work correctly on chromebook
+      system 'sed', '-i', '../aimake', '-e', '/$codeset *= */s/;/; $codeset = "UTF-8";/'
+
+      # Build with rpath pointing at /usr/local
       system "/usr/local/bin/perl ../aimake --config-only -i /usr/local/ --directory-layout=prefix --without=gui"
-      system "/usr/local/bin/perl ../aimake"
+
+      # system "/usr/local/bin/perl ../aimake"
+
+      # Need -fPIC for armv7l
+      # Need LC_ALL to not use ascii for encoding
+      system "LC_ALL=POSIX /usr/local/bin/perl ../aimake --var CFLAGS='-g -O2 -Wall -fPIC' --var CXXFLAGS='-g -O2 -Wall -fPIC'"
     end
   end
 
