@@ -21,10 +21,13 @@ class Openssl < Package
 
   def self.build
     options="shared zlib-dynamic"
-    if `uname -m`.strip == 'aarch64'
-      options = options + " no-asm"
+    case `uname -m`.strip
+    when "aarch64"
+      # Specify armv7 since aarch64 uses armv7 as its user land.
+      system "./Configure --prefix=/usr/local --openssldir=/etc/ssl #{options} linux-armv4 -march=armv7-a"
+    else
+      system "./config --prefix=/usr/local --openssldir=/etc/ssl #{options}"
     end
-    system "./config --prefix=/usr/local --openssldir=/etc/ssl #{options}"
     system "make"
   end
 
