@@ -8,12 +8,16 @@ class Openssl < Package
   source_url 'https://github.com/openssl/openssl/archive/OpenSSL_1_0_2l.tar.gz'
   source_sha256 'a3d3a7c03c90ba370405b2d12791598addfcafb1a77ef483c02a317a56c08485'
   binary_url ({
-    aarch64: 'https://github.com/jam7/chromebrew/releases/download/binaries/openssl-1.0.2l-chromeos-armv7l.tar.xz',
-    armv7l:  'https://github.com/jam7/chromebrew/releases/download/binaries/openssl-1.0.2l-chromeos-armv7l.tar.xz',
+    aarch64: 'https://github.com/jam7/chrome-cross/releases/download/v1.8/openssl-1.0.2l-chromeos-armv7l.tar.xz',
+    armv7l:  'https://github.com/jam7/chrome-cross/releases/download/v1.8/openssl-1.0.2l-chromeos-armv7l.tar.xz',
+    i686:    'https://github.com/jam7/chrome-cross/releases/download/v1.8/openssl-1.0.2l-chromeos-i686.tar.xz',
+    x86_64:  'https://github.com/jam7/chrome-cross/releases/download/v1.8/openssl-1.0.2l-chromeos-x86_64.tar.xz',
   })
   binary_sha256 ({
-    aarch64: '4af16174aa6a9f565a5895fedea89daf0c8fb66b8f26b0c8416f5456aa440ea5',
-    armv7l:  '4af16174aa6a9f565a5895fedea89daf0c8fb66b8f26b0c8416f5456aa440ea5',
+    aarch64: '205dcce05cad0e27349f3b728b7fbc27a3feba0ebcfc7129b48a741f122a08be',
+    armv7l:  '205dcce05cad0e27349f3b728b7fbc27a3feba0ebcfc7129b48a741f122a08be',
+    i686:    'a439b4e6a03cbfc58ef3fdf52f7d5a11523db08528ff14fd123866c00e32d956',
+    x86_64:  'eb3e37f632623a480a57964f1f6ea21d2e48fdac0e2cb67305a805ec24ad4525',
   })
 
   depends_on 'perl' => :build

@@ -6,6 +6,18 @@ class Ncursesw < Package
   version '6.0-2'
   source_url 'ftp://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.0.tar.gz'
   source_sha256 'f551c24b30ce8bfb6e96d9f59b42fbea30fa3a6123384172f9e7284bcf647260'
+  binary_url ({
+    aarch64: 'https://github.com/jam7/chrome-cross/releases/download/v1.8/ncursesw-5.9-chromeos-armv7l.tar.xz',
+    armv7l:  'https://github.com/jam7/chrome-cross/releases/download/v1.8/ncursesw-5.9-chromeos-armv7l.tar.xz',
+    i686:    'https://github.com/jam7/chrome-cross/releases/download/v1.8/ncursesw-5.9-chromeos-i686.tar.xz',
+    x86_64:  'https://github.com/jam7/chrome-cross/releases/download/v1.8/ncursesw-5.9-chromeos-x86_64.tar.xz',
+  })
+  binary_sha256 ({
+    aarch64: '86f8d8e4899752c511d59c00f63b450f2e3f4949a2169cb7a9620eb3863c8824',
+    armv7l:  '86f8d8e4899752c511d59c00f63b450f2e3f4949a2169cb7a9620eb3863c8824',
+    i686:    'ac5c1b4f86aa8efa2b86dc3a26396509ee824f6f09c9a6087403f04ea624aa0e',
+    x86_64:  '384f432ba9b7c73ae4c779860a8fd7eca7d45a51092f72959c63fbe43edcad70',
+  })
 
   depends_on 'diffutils' => :build
 
