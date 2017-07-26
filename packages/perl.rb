@@ -3,12 +3,11 @@ require 'package'
 class Perl < Package
   description 'Perl 5 is a highly capable, feature-rich programming language with over 29 years of development.'
   homepage 'https://www.perl.org/'
-  version '5.24.1-1'
+  version '5.24.1-2'
   source_url 'http://www.cpan.org/src/5.0/perl-5.24.1.tar.gz'
   source_sha256 'e6c185c9b09bdb3f1b13f678999050c639859a7ef39c8cad418448075f5918af'
 
   depends_on 'patch' => :build
-  depends_on 'curl'
 
   def self.build
     # Use system zlib and bzip2
@@ -20,9 +19,9 @@ class Perl < Package
 
   def self.install
     system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
-    system "sudo curl -o /usr/local/bin/cpanm https://cpanmin.us"
-    system "sudo chmod +x /usr/local/bin/cpanm"
-    system "sudo chown chronos /usr/local/bin/cpanm"
+    system "curl -o /usr/local/bin/cpanm https://cpanmin.us"
+    system "chmod +x /usr/local/bin/cpanm"
+    system "chown chronos /usr/local/bin/cpanm"
   end
 
   def self.check
