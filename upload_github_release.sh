@@ -6,7 +6,7 @@
 #   github-release  (https://github.com/aktau/github-release)
 #   golang
 
-owner=skycocker
+owner=jam7
 repo=chromebrew
 
 case x$1 in
@@ -34,5 +34,6 @@ esac
 
 for file in "$@"; do
   name=$(basename $file)
+  github-release deletef -u "$owner" -r "$repo" -t "$tag" -n "$name"
   github-release upload -u "$owner" -r "$repo" -t "$tag" -n "$name" -f "$file"
 done
