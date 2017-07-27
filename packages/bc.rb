@@ -10,6 +10,7 @@ class Bc < Package
   depends_on 'readline'
   depends_on 'flex' => :build
   depends_on 'ed' => :build
+  depends_on 'texinfo' => :build
 
   def self.build
     system "./configure", "--with-readline"
