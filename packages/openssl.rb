@@ -17,7 +17,8 @@ class Openssl < Package
   })
 
   depends_on 'perl' => :build
-  depends_on 'diffutils' => :build
+  depends_on 'bc' => :build             # required for `make test`
+  depends_on 'diffutils' => :build      # required for `make test`
   depends_on 'zlibpkg' => :build
 
   def self.build
