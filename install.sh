@@ -28,6 +28,9 @@ esac
 #This will allow things to work without sudo
 sudo chown -R `id -u`:`id -g` "${CREW_PREFIX}"
 
+#This remove a symbolic link from /usr/local/var to /var on Chromium OS or CloudReady
+[ -h $CREW_PREFIX/var ] && [ `readlink $CREW_PREFIX/var` == '/var' ] && rm -f $CREW_PREFIX/var
+
 #prepare directories
 for dir in $CREW_LIB_PATH $CREW_CONFIG_PATH $CREW_CONFIG_PATH/meta $CREW_BREW_DIR $CREW_DEST_DIR $CREW_PACKAGES_PATH; do
   mkdir -p $dir
