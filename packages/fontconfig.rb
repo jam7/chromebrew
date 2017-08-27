@@ -8,8 +8,16 @@ class Fontconfig < Package
   source_sha256 '668293fcc4b3c59765cdee5cee05941091c0879edcc24dfec5455ef83912e45c'
 
   binary_url ({
+    aarch64: 'https://dl.bintray.com/chromebrew/chromebrew/fontconfig-2.12.4-1-chromeos-armv7l.tar.xz',
+     armv7l: 'https://dl.bintray.com/chromebrew/chromebrew/fontconfig-2.12.4-1-chromeos-armv7l.tar.xz',
+       i686: 'https://dl.bintray.com/chromebrew/chromebrew/fontconfig-2.12.4-1-chromeos-i686.tar.xz',
+     x86_64: 'https://dl.bintray.com/chromebrew/chromebrew/fontconfig-2.12.4-1-chromeos-x86_64.tar.xz',
   })
   binary_sha256 ({
+    aarch64: '6fbb8830f34adf34dd3efc4380d308cab0af4034c065fdae08b969202d2dff42',
+     armv7l: '6fbb8830f34adf34dd3efc4380d308cab0af4034c065fdae08b969202d2dff42',
+       i686: 'd8c8c10d4dff0a7657f1787728c49e367004869be7fca5ef79f80acbea506056',
+     x86_64: 'bfe4075a713324eda791ec94ef0918c8ff5b18efe3d4e20a64cdb976c969d9e5',
   })
 
   depends_on 'expat'
