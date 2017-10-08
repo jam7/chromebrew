@@ -23,6 +23,7 @@ class Openssh < Package
   depends_on 'buildessential'
   depends_on 'autoconf'
   depends_on 'zlibpkg'
+  depends_on 'openssl'
 
   def self.build
     system "autoconf"
